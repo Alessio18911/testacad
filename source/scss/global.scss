@@ -1,4 +1,23 @@
-body, .body {
+.body {
+  position: relative;
+  margin: 0;
+  font-family: "IBM Plex sans", "Arial", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  @include transition(background-color);
+
+  &--immobile {
+    overflow: hidden;
+  }
+
+  &--dark {
+    background-color: $darkgrey;
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
@@ -8,4 +27,19 @@ body, .body {
   width: 1px;
   height: 1px;
   margin: -1px;
+}
+
+.wrapper {
+  padding: 0 15px;
+
+  @include mq(768) {
+    max-width: 95%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  @include mq(1200) {
+    max-width: 1440px;
+    padding: 0 57px;
+  }
 }

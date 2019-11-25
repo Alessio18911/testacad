@@ -1,0 +1,40 @@
+.logo {
+  display: block;
+  width: 104px;
+  height: 24px;
+
+  @include mq(1200) {
+    width: 120px;
+    height: 27px;
+  }
+}
+
+.logo__svg {
+  width: 100%;
+  height: 100%;
+  @include transition(fill);
+
+  &--white {
+    fill: $white;
+  }
+}
+
+.logo__letter {
+  fill: $white;
+  @include transition(fill);
+
+  &--black {
+    fill: $black;
+  }
+}
+
+.logo__text {
+  position: relative;
+  z-index: 1;
+  width: 79px;
+  height: 23px;
+
+  @include mq(768) {
+    display: none;
+  }
+}

@@ -1,14 +1,145 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.min.css">
+    <title>Лига А.</title>
+    <link rel="stylesheet" href="css/style.min.css" />
   </head>
-  <body>
-    Простая сборка HTML + SCSS
+  <body class="body">
+    <div style="display: none">
+      <include src="dist/img/sprite.svg"></include>
+    </div>
+
+    <div class="wrapper">
+      <header class="page-header">
+        <div class="page-header__left-part">
+          <a class="page-header__logo logo" href="">
+            <svg class="logo__svg" width="120" height="27">
+              <use xlink:href="#icon-logo"></use>
+            </svg>
+          </a>
+          <svg class="logo__text" width="79" height="23">
+            <use xlink:href="#icon-logo-text"></use>
+          </svg>
+          <div class="page-header__theme-toggle theme-toggle">
+            <input class="theme-toggle__input visually-hidden" type="checkbox" id="theme-toggle" />
+            <label class="theme-toggle__label" for="theme-toggle">
+              <span class="theme-toggle__svg-wrapper">
+                <svg class="theme-toggle__svg theme-toggle__svg--rays" width="11" height="11">
+                  <use xlink:href="#icon-rays"></use>
+                </svg>
+
+                <svg class="theme-toggle__svg theme-toggle__svg--sun" width="11" height="11">
+                  <use xlink:href="#icon-sun"></use>
+                </svg>
+              </span>
+
+              <span class="theme-toggle__svg-wrapper">
+                <svg class="theme-toggle__svg theme-toggle__svg--moon" viewBox="0 0 11 11" width="11" height="11">
+                  <use xlink:href="#icon-moon"></use>
+                </svg>
+              </span>
+            </label>
+          </div>
+          <div class="page-header__weather">
+            <span>+11°C</span>, небольшой дождь
+          </div>
+        </div>
+        <div class="page-header__nav-wrapper">
+          <ul class="main-nav list">
+            <li class="main-nav__item">
+              <a href="" class="main-nav__link main-nav__link--active link">Верстка</a>
+            </li>
+            <li class="main-nav__item">
+              <a href="" class="main-nav__link link">Контакты </a>
+            </li>
+            <li class="main-nav__item">
+              <a href="" class="main-nav__link link">Фронтенд</a>
+            </li>
+            <li class="main-nav__item">
+              <a href="" class="main-nav__link link">Проекты</a>
+            </li>
+            <li class="main-nav__item">
+              <a href="" class="main-nav__link link">Команда</a>
+            </li>
+          </ul>
+        </div>
+        <div class="page-header__button-wrapper">
+          <a class="page-header__button link button button--blue" href="#">Работать с нами</a>
+        </div>
+        <button class="page-header__burger burger button" type="button">
+          <span></span>
+        </button>
+      </header>
+      <main class="page-content">
+        <section class="about-us">
+          <section class="block-title">
+            <svg class="block-title__image" width="190" height="215">
+              <use xlink:href="#icon-dragon"></use>
+            </svg>
+
+            <h1 class="block-title__title">
+              <span>Лига А.</span>
+              <span>фронтенд</span>
+              <span>аутсорс</span>
+            </h1>
+            <ul class="block-title__promo list">
+              <li class="block-title__promo-item">
+                <p class="block-title__promo-text"><span>297</span> успешных проектов</p>
+              </li>
+              <li class="block-title__promo-item">
+                <p class="block-title__promo-text"><span>2 дня</span> на запуск?<br> это про нас</p>
+              </li>
+            </ul>
+          </section>
+
+          <ul class="advantages list">
+            <li class="advantages__item">
+              <span>01</span>
+              <p class="advantages__text">Даём экспертизу и топим<br /> за качество</p>
+            </li>
+            <li class="advantages__item">
+              <span>02 </span>
+              <p class="advantages__text">Привлекаем джуниоров<br /> для минимизации стоимости</p>
+            </li>
+            <li class="advantages__item">
+              <span>03</span>
+              <p class="advantages__text">Гибкость и честность —<br /> наше кредо</p>
+            </li>
+            <li class="advantages__item">
+              <span>004</span>
+              <p class="advantages__text">Ценим ваши данные, работаем по договору и NDA</p>
+            </li>
+            <li class="advantages__item">
+              <span>005</span>
+              <p class="advantages__text">Вы найдёте нас на профильных конференциях как докладчиков или организаторов</p>
+            </li>
+            <li class="advantages__item advantages__item--test">
+              <div class="advantages__links-wrapper">
+                <a class="advantages__link link" href="">
+                  <svg width="39" height="40">
+                    <use xlink:href="#icon-lighthouse"></use>
+                  </svg>
+                </a>
+                <a class="advantages__link link" href="">
+                  <svg width="42" height="42">
+                    <use xlink:href="#icon-roll"></use>
+                  </svg>
+                </a>
+                <a class="advantages__link link" href="">
+                  <svg width="46" height="40">
+                    <use xlink:href="#icon-speedometer"></use>
+                  </svg>
+                </a>
+              </div>
+              <p class="advantages__text">Используем для тестов</p>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
     <script src="js/script.min.js"></script>
   </body>
 </html>

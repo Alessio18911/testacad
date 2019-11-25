@@ -1,60 +1,61 @@
-const { src, dest, series, parallel, watch } = require('gulp');
-const plumber = require('gulp-plumber');
-const del = require('del');
-const posthtml = require('gulp-posthtml');
-const include = require('posthtml-include');
-const sass = require('gulp-sass');
-const rename = require('gulp-rename');
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const csso = require('gulp-csso');
-const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
-const browserSync = require('browser-sync').create();
+const { src, dest, series, parallel, watch } = require("gulp");
+const plumber = require("gulp-plumber");
+const del = require("del");
+const posthtml = require("gulp-posthtml");
+const include = require("posthtml-include");
+const sass = require("gulp-sass");
+const rename = require("gulp-rename");
+const postcss = require("gulp-postcss");
+const autoprefixer = require("autoprefixer");
+const csso = require("gulp-csso");
+const babel = require("gulp-babel");
+const uglify = require("gulp-uglify");
+const browserSync = require("browser-sync").create();
 const build = series(clean, copy, parallel(css, js), html);
 
 function html() {
-  return src('source/*.html')
+  return src("source/*.html")
     .pipe(posthtml([include()]))
-    .pipe(dest('dist'));
+    .pipe(dest("dist"));
 }
 
 function css() {
-  return src('source/scss/style.scss', { sourcemaps: true })
+  return src("source/scss/style.scss", { sourcemaps: true })
     .pipe(plumber())
     .pipe(sass())
-    .pipe(postcss([ autoprefixer() ]))
+    .pipe(postcss([autoprefixer()]))
     .pipe(csso())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(dest('dist/css', { sourcemaps: true }))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(dest("dist/css", { sourcemaps: true }))
     .pipe(browserSync.stream());
 }
 
 function js() {
-  return src('source/js/*', { sourcemaps: true })
-    .pipe(babel({
-      presets: ['@babel/env']
-    }))
+  return src("source/js/*", { sourcemaps: true })
+    .pipe(
+      babel({
+        presets: ["@babel/env"]
+      })
+    )
     .pipe(uglify())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(dest('dist/js', { sourcemaps: true }));
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(dest("dist/js", { sourcemaps: true }));
 }
 
 function copy() {
-  return src([
-    'source/images/*',
-    'source/fonts/*'], { base: 'source'})
-    .pipe(dest('./dist'));
+  return src(["source/img/*", "source/fonts/*"], { base: "source" }).pipe(
+    dest("./dist")
+  );
 }
 
 function clean() {
-  return del('dist');
+  return del("dist");
 }
 
 function server() {
   browserSync.init({
     server: {
-        baseDir: './dist'
+      baseDir: "./dist"
     }
   });
 

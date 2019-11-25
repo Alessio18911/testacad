@@ -1,0 +1,26 @@
+.button {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+
+  &--blue {
+    width: 180px;
+    min-height: 35px;
+    padding: 0 20px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 35px;
+    color: $white;
+    text-transform: uppercase;
+    background-color: $blue;
+    @include transition(opacity);
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.about-us {
+  padding: 64px 0 0;
+  box-sizing: border-box;
+
+  @include mq(768) {
+    padding: 40px 0 0;
+  }
+
+  @include mq(1200) {
+    padding: 117px 0 0;
+  }
+}

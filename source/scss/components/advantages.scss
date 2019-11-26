@@ -1,0 +1,107 @@
+.advantages {
+  font-size: 17px;
+  line-height: 1.24;
+
+  @include mq(768) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -5px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  @include mq(1200) {
+    margin: 0 -41px;
+    font-size: 24px;
+  }
+}
+
+.advantages__item {
+  display: flex;
+  margin: 0 0 12px;
+  box-sizing: border-box;
+
+  @include mq(768) {
+    display: block;
+    width: 31.5%;
+    margin: 0 5px 35px;
+  }
+
+  @include mq(1200) {
+    width: 26%;
+    margin: 0 41px 67px;
+  }
+
+  &--test {
+    display: flex;
+    flex-direction: column;
+    padding: 7px 0 0;
+
+    @include mq(768) {
+      padding: 0 0 5px;
+    }
+  }
+
+  span {
+    display: block;
+    width: 60px;
+    font-size: 24px;
+    line-height: 1.1;
+
+    @include mq(768) {
+      margin: 0 0 3px;
+      font-size: 40px;
+      color: $red1;
+    }
+  }
+}
+
+.advantages__text {
+  width: calc(100% - 60px);
+  margin: 0;
+
+  @include mq(768) {
+    width: auto;
+  }
+
+  br {
+    display: none;
+  }
+}
+
+.advantages__links-wrapper {
+  margin: 0 0 5px;
+
+  @include mq(768) {
+    display: flex;
+    align-items: center;
+    margin: auto 0 5px;
+  }
+}
+
+.advantages__link {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0;
+  @include transition(opacity);
+
+  @include mq(768) {
+    margin: 0 10px 0 0;
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+
+  svg {
+    fill: $blue;
+  }
+}

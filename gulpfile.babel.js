@@ -3,10 +3,11 @@ const plumber = require("gulp-plumber");
 const del = require("del");
 const posthtml = require("gulp-posthtml");
 const include = require("posthtml-include");
-const sass = require("gulp-sass");
-const rename = require("gulp-rename");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
+const cmq = require("css-mqpacker");
+const sass = require("gulp-sass");
+const rename = require("gulp-rename");
 const csso = require("gulp-csso");
 const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
@@ -23,7 +24,7 @@ function css() {
   return src("source/scss/style.scss", { sourcemaps: true })
     .pipe(plumber())
     .pipe(sass())
-    .pipe(postcss([autoprefixer()]))
+    .pipe(postcss([cmq(), autoprefixer()]))
     .pipe(csso())
     .pipe(rename({ suffix: ".min" }))
     .pipe(dest("dist/css", { sourcemaps: true }))

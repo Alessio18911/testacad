@@ -24,10 +24,8 @@ function css() {
   return src("source/scss/style.scss", { sourcemaps: true })
     .pipe(plumber())
     .pipe(sass())
-    .pipe(postcss([cmq({
-      sort: true
-    }), autoprefixer()]))
     .pipe(csso())
+    .pipe(postcss([cmq({ sort: true }), autoprefixer()]))
     .pipe(rename({ suffix: ".min" }))
     .pipe(dest("dist/css", { sourcemaps: true }))
     .pipe(browserSync.stream());

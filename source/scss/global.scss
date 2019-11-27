@@ -2,7 +2,7 @@
   position: relative;
   margin: 0;
   font-family: "IBM Plex sans", "Arial", sans-serif;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 300;
   @include transition(background-color);
 
@@ -10,38 +10,49 @@
     overflow: hidden;
   }
 
-  &--dark {
-    background-color: $darkgrey;
-    .page-header {
-      color: $white;
-    }
+  @include mq(768) {
+    &--dark {
+      background-color: $darkgrey;
 
-    .block-title__title {
-      color: $white;
-
-      span {
-        color: $black;
-        text-shadow: 1px 0 $white, 0 1px $white, 0 -1px $white, -1px 0 $white;
-      }
-    }
-
-    .block-title__image {
-      fill: $white;
-    }
-
-    .block-title__image-path {
-      fill: $black;
-    }
-
-    .block-title__promo {
-      color: $white;
-    }
-
-    .advantages {
-      color: $white;
-
-      span {
+      .page-header {
         color: $white;
+      }
+
+      .main-nav__link {
+        color: rgba($white, 0.4);
+
+        &--clicked {
+          color: $white;
+        }
+      }
+
+      .block-title__title {
+        color: $white;
+
+        span {
+          color: $black;
+          text-shadow: 1px 0 $white, 0 1px $white, 0 -1px $white, -1px 0 $white;
+        }
+      }
+
+      .block-title__image {
+        fill: $white;
+      }
+
+      .block-title__image-path {
+        fill: $black;
+      }
+
+      .block-title__promo {
+        color: $white;
+      }
+
+      .advantages {
+        color: $white;
+
+        span {
+          color: $white;
+        }
       }
     }
   }

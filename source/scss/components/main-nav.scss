@@ -70,7 +70,7 @@
   }
 
   &:hover {
-    color: rgba($white, 1);
+    color: $white;
 
     @include mq(768) {
       color: $black;
@@ -81,8 +81,8 @@
     color: $lightblue;
   }
 
-  &--active {
-    color: rgba($white, 1);
+  &--clicked {
+    color: $white;
 
     @include mq(768) {
       color: $black;

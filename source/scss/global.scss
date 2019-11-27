@@ -12,6 +12,35 @@
 
   &--dark {
     background-color: $darkgrey;
+
+    .block-title__title {
+      color: $white;
+
+      span {
+        color: $black;
+        text-shadow: 1px 0 $white, 0 1px $white, 0 -1px $white, -1px 0 $white;
+      }
+    }
+
+    .block-title__image {
+      fill: $white;
+    }
+
+    .block-title__image-path {
+      fill: $black;
+    }
+
+    .block-title__promo {
+      color: $white;
+    }
+
+    .advantages {
+      color: $white;
+
+      span {
+        color: $white;
+      }
+    }
   }
 }
 

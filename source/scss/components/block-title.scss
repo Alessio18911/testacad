@@ -101,6 +101,7 @@
 
   span {
     color: $red2;
+    @include transition(color);
   }
 
   br {

@@ -7,15 +7,20 @@ const toggleMenuBtn = document.querySelector('.burger');
 const mainMenu = document.querySelector('.page-header__wrapper--right');
 const mainMenuItems = document.querySelectorAll('.main-nav__link');
 
+function toggleLogoColor() {
+  logoSvg.classList.toggle('logo__svg--white');
+  logoLetter.classList.toggle('logo__letter--black');
+}
+
 function onThemeToggleChange() {
   document.body.classList.toggle('body--dark');
+  toggleLogoColor();
 }
 
 function onToggleMenuBtnClick() {
   toggleMenuBtn.classList.toggle('burger--active');
   mainMenu.classList.toggle('page-header__wrapper--opened');
-  logoSvg.classList.toggle('logo__svg--white');
-  logoLetter.classList.toggle('logo__letter--black');
+  toggleLogoColor();
   document.body.classList.toggle('body--immobile');
 }
 

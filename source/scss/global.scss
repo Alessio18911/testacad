@@ -12,6 +12,9 @@
 
   &--dark {
     background-color: $darkgrey;
+    .page-header {
+      color: $white;
+    }
 
     .block-title__title {
       color: $white;

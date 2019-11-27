@@ -24,7 +24,9 @@ function css() {
   return src("source/scss/style.scss", { sourcemaps: true })
     .pipe(plumber())
     .pipe(sass())
-    .pipe(postcss([cmq(), autoprefixer()]))
+    .pipe(postcss([cmq({
+      sort: true
+    }), autoprefixer()]))
     .pipe(csso())
     .pipe(rename({ suffix: ".min" }))
     .pipe(dest("dist/css", { sourcemaps: true }))

@@ -3,7 +3,7 @@
   width: 104px;
   height: 24px;
 
-  @include mq(1200) {
+  @include mq(1024) {
     width: 120px;
     height: 27px;
   }

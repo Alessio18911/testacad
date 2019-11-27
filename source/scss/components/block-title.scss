@@ -1,7 +1,7 @@
 .block-title {
-  padding: 0 0 40px;
+  padding: 0 0 29px;
   font-size: 24px;
-  line-height: 1.1;
+  line-height: 1.33;
 
   @include mq(768) {
     display: flex;
@@ -10,7 +10,7 @@
   }
 
   @include mq(1200) {
-    padding: 0 0 56px;
+    padding: 0 0 23px;
     font-size: 40px;
     line-height: 1.1;
   }
@@ -19,7 +19,7 @@
 .block-title__image {
   width: 170px;
   height: 190px;
-  margin: 0 0 0 60px;
+  margin: 0 0 0 52px;
 
   @include mq(768) {
     margin: 4px 2.2% 0 0;
@@ -28,7 +28,7 @@
   @include mq(1200) {
     width: 190px;
     height: 215px;
-    margin: 4px 5.2% 0 0;
+    margin: 4px 4.5% 0 6px;
   }
 }
 
@@ -41,56 +41,32 @@
 }
 
 .block-title__title {
-  margin: 0;
+  margin: 0 0 49px;
   font-size: 48px;
-  line-height: 1.04;
+  line-height: 0.96;
   text-transform: uppercase;
 
   @include mq(768) {
-    width: calc(64.5% - 170px);
+    width: calc(63.5% - 170px);
     font-size: 46px;
     line-height: 1.4;
   }
 
   @include mq(1200) {
-    width: 48%;
+    width: 49.3%;
+    padding: 9px 0 0;
     font-size: 70px;
-    line-height: 1.29;
+    line-height: 1;
   }
 
   span {
-    display: block;
-  }
-
-  span:first-child {
-    margin: 0 0 -5px;
-
-    @include mq(768) {
-      margin: 0;
-    }
-
-    @include mq(1200) {
-      margin: 0 0 -15px;
-    }
-  }
-
-  span:not(:first-child) {
-    line-height: 0.96;
     color: $white;
-    text-shadow: 1px 0 $blue, -1px 0 $blue, 0 1px $blue, 0 -1px $blue;
-
-    @include mq(768) {
-      line-height: 1.4;
-    }
-
-    @include mq(1200) {
-      line-height: 0.97;
-    }
+    text-shadow: 1px 0 $blue, 0 1px $blue, 0 -1px $blue, -1px 0 $blue;
   }
 }
 
 .block-title__promo {
-  padding: 50px 0 0;
+  padding: 0;
 
   @include mq(768) {
     width: 155px;
@@ -99,15 +75,19 @@
 
   @include mq(1200) {
     width: 310px;
-    padding: 10px 0 0;
+    padding: 13px 0 0;
   }
 }
 
 .block-title__promo-item {
-  padding: 0 0 25px;
+  margin: 0 0 15px;
+
+  @include mq(1200) {
+    margin: 0 0 27px;
+  }
 
   &:last-child {
-    padding: 0;
+    margin: 0;
   }
 }
 

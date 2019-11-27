@@ -1,4 +1,5 @@
 .advantages {
+  padding: 0 9px 25px 0;
   font-size: 17px;
   line-height: 1.24;
 
@@ -11,14 +12,14 @@
   }
 
   @include mq(1200) {
-    margin: 0 -41px;
+    margin: 0 -44px;
     font-size: 24px;
   }
 }
 
 .advantages__item {
   display: flex;
-  margin: 0 0 12px;
+  margin: 0 0 18px;
   box-sizing: border-box;
 
   @include mq(768) {
@@ -29,18 +30,20 @@
 
   @include mq(1200) {
     width: 26%;
-    margin: 0 41px 67px;
+    margin: 0 44px 64px;
   }
 
   &--test {
-    display: flex;
     flex-direction: column;
-    padding: 7px 0 0;
+    padding: 23px 0 0;
+    margin: 0 0 0 2px;
 
     @include mq(768) {
-      padding: 0 0 5px;
+      display: flex;
+      padding: 0 0 8px;
     }
   }
+
 
   span {
     display: block;
@@ -49,7 +52,7 @@
     line-height: 1.1;
 
     @include mq(768) {
-      margin: 0 0 3px;
+      margin: 0 0 10px;
       font-size: 40px;
       color: $red1;
     }
@@ -63,30 +66,35 @@
   @include mq(768) {
     width: auto;
   }
-
-  br {
-    display: none;
-  }
 }
 
 .advantages__links-wrapper {
-  margin: 0 0 5px;
+  margin: 0 0 8px;
 
   @include mq(768) {
     display: flex;
     align-items: center;
     margin: auto 0 5px;
   }
+
+  @include mq(1200) {
+    margin: auto 0 10px;
+  }
 }
 
 .advantages__link {
   display: inline-block;
   vertical-align: middle;
+  margin: 0 15px 0 0;
   font-size: 0;
   @include transition(opacity);
 
   @include mq(768) {
     margin: 0 10px 0 0;
+  }
+
+  @include mq(1200) {
+    margin: 0 21px 0 0;
   }
 
   &:hover {

@@ -45,7 +45,7 @@
     @include transition(max-height);
 
     @include mq(768) {
-      position: relative;
+      position: static;
       flex-direction: column;
       align-items: flex-end;
       width: calc(100% - 320px);

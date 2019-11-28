@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Лига А.</title>
     <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="preload" href="fonts/ibmplexsans300.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/ibmplexsans600.woff2" as="font" crossorigin="anonymous">
   </head>
   <body class="body">
     <div style="display: none">
@@ -15,7 +17,7 @@
     <div class="wrapper">
       <header class="page-header">
         <div class="page-header__wrapper page-header__wrapper--left">
-          <a class="page-header__logo logo" href="">
+          <a class="page-header__logo logo" href="" aria-label="Логотип Академии. Вернуться на главную страницу">
             <svg class="logo__svg" width="120" height="27">
               <use xlink:href="#icon-logo"></use>
             </svg>
@@ -68,7 +70,7 @@
           <a class="page-header__button link button button--blue" href="#">Работать с нами</a>
         </div>
 
-        <button class="page-header__burger burger button" type="button">
+        <button class="page-header__burger burger button" type="button" aria-label="Открыть или закрыть главное меню">
           <span></span>
         </button>
       </header>
@@ -114,17 +116,17 @@
             </li>
             <li class="advantages__item advantages__item--test">
               <div class="advantages__links-wrapper">
-                <a class="advantages__link link" href="">
+                <a class="advantages__link link" href="" aria-label="">
                   <svg width="39" height="40">
                     <use xlink:href="#icon-lighthouse"></use>
                   </svg>
                 </a>
-                <a class="advantages__link link" href="">
+                <a class="advantages__link link" href="" aria-label="">
                   <svg width="42" height="42">
                     <use xlink:href="#icon-roll"></use>
                   </svg>
                 </a>
-                <a class="advantages__link link" href="">
+                <a class="advantages__link link" href="" aria-label="">
                   <svg width="46" height="40">
                     <use xlink:href="#icon-speedometer"></use>
                   </svg>

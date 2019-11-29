@@ -44,6 +44,7 @@ mainMenuItems.forEach(item =>
 window.addEventListener("resize", function(evt) {
   if (window.innerWidth < 768) {
     document.body.className = "body";
+    themeToggle.checked = false;
   } else {
     mainMenu.classList.remove('page-header__wrapper--opened');
     logoSvg.classList.remove("logo__svg--white");

@@ -18,6 +18,19 @@
         color: $white;
       }
 
+      .theme-toggle__label {
+        border-color: $white;
+      }
+
+      .theme-toggle__svg--rays {
+        opacity: 1;
+      }
+
+      .theme-toggle__svg--moon {
+        fill: $white;
+        stroke: none;
+      }
+
       .main-nav__link {
         color: rgba($white, 0.4);
 

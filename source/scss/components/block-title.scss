@@ -20,6 +20,8 @@
   width: 170px;
   height: 190px;
   margin: 0 0 0 52px;
+  fill: $black;
+  color: $white;
   @include transition(fill);
 
   @include mq(768) {
@@ -31,11 +33,6 @@
     height: 215px;
     margin: 4px 4.5% 0 6px;
   }
-}
-
-.block-title__image-path {
-  fill: $white;
-  @include transition(fill);
 }
 
 .block-title__image-flag {

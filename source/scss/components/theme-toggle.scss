@@ -4,6 +4,16 @@
   }
 }
 
+.theme-toggle__input:checked + .theme-toggle__label .theme-toggle__svg--rays {
+  opacity: 1;
+}
+
+.theme-toggle__input:checked + .theme-toggle__label
+.theme-toggle__svg--moon {
+  fill: $white;
+  stroke: none;
+}
+
 .theme-toggle__label {
   position: relative;
   display: flex;

@@ -88,13 +88,7 @@ function onMainMenuItemClick(evt) {
   toggleMainMenuItemsColor(evt);
 }
 
-mainMenuItems.forEach(item =>
-  item.addEventListener("click", onMainMenuItemClick)
-);
-themeToggle.addEventListener("change", onThemeToggleChange);
-toggleMenuBtn.addEventListener("click", onToggleMenuBtnClick);
-
-window.addEventListener("resize", function(evt) {
+function onWindowResize(evt) {
   let windowWidth = window.innerWidth;
 
   switch(windowWidth < 768) {
@@ -120,4 +114,11 @@ window.addEventListener("resize", function(evt) {
         changeProps([[logo, BlocksMap.logo.prop]]);
       }
   }
-});
+}
+
+mainMenuItems.forEach(item =>
+  item.addEventListener("click", onMainMenuItemClick)
+);
+themeToggle.addEventListener("change", onThemeToggleChange);
+toggleMenuBtn.addEventListener("click", onToggleMenuBtnClick);
+window.addEventListener("resize", onWindowResize);

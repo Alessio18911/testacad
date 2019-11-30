@@ -1,54 +1,70 @@
 "use strict";
 
-const logo = document.querySelector(".page-header__logo");
-const themeToggle = document.querySelector("#theme-toggle");
-const toggleMenuBtn = document.querySelector(".burger");
-const mainMenu = document.querySelector(".page-header__wrapper--right");
-const mainMenuItems = document.querySelectorAll(".main-nav__link");
+const ActionCode = {
+  ADD_CLASS: 1,
+  TOGGLE_CLASS: 2
+};
 
-function toggleMainMenuItemsColor() {
-  mainMenuItems.forEach(item => item.classList.remove("main-nav__link--clicked"));
+const body = document.body;
+const logo = body.querySelector(".page-header__logo");
+const themeToggle = body.querySelector("#theme-toggle");
+const toggleMenuBtn = body.querySelector(".burger");
+const mainMenu = body.querySelector(".page-header__wrapper--right");
+const mainMenuItems = body.querySelectorAll(".main-nav__link");
+
+function toggleMainMenuItemsColor(evt) {
+  mainMenuItems.forEach(item => changeProps(item, "main-nav__link--clicked"));
+  changeProps(evt.target, "main-nav__link--clicked", ActionCode.ADD_CLASS);
+}
+
+function changeProps(blockName, propClass, code) {
+  switch(code) {
+    case 2: blockName.classList.toggle(propClass);
+      break;
+
+    case 1: blockName.classList.add(propClass);
+      break;
+
+    default: blockName.classList.remove(propClass);
+  }
 }
 
 function onThemeToggleChange() {
-  document.body.classList.toggle("body--dark");
-  logo.classList.toggle('logo--white');
-  toggleMainMenuItemsColor();
+  changeProps(body, "body--dark", ActionCode.TOGGLE_CLASS);
+  changeProps(logo, "logo--white", ActionCode.TOGGLE_CLASS);
 }
 
 function onToggleMenuBtnClick() {
-  toggleMenuBtn.classList.toggle("burger--active");
-  mainMenu.classList.toggle("page-header__wrapper--opened");
-  logo.classList.toggle('logo--white');
-  document.body.classList.toggle("body--immobile");
+  changeProps(toggleMenuBtn, "burger--active", ActionCode.TOGGLE_CLASS);
+  changeProps(mainMenu, "page-header__wrapper--opened", ActionCode.TOGGLE_CLASS);
+  changeProps(logo, "logo--white", ActionCode.TOGGLE_CLASS);
+  changeProps(body, "body--immobile", ActionCode.TOGGLE_CLASS);
 }
 
 function onMainMenuItemClick(evt) {
   evt.preventDefault();
-  toggleMainMenuItemsColor();
-  evt.target.classList.add('main-nav__link--clicked');
+  toggleMainMenuItemsColor(evt);
 }
 
+mainMenuItems.forEach(item => item.addEventListener("click", onMainMenuItemClick));
 themeToggle.addEventListener("change", onThemeToggleChange);
 toggleMenuBtn.addEventListener("click", onToggleMenuBtnClick);
-mainMenuItems.forEach(item =>
-  item.addEventListener("click", onMainMenuItemClick)
-);
 
 window.addEventListener("resize", function(evt) {
   if (window.innerWidth < 768) {
-    document.body.className = "body";
+    changeProps(body, "body--immobile");
+    changeProps(body, "body--dark");
     themeToggle.checked = false;
 
     if(!toggleMenuBtn.classList.contains("burger--active")) {
-      logo.classList.remove('logo--white');
+      changeProps(logo, "logo--white");
     }
   } else {
-    toggleMenuBtn.classList.remove("burger--active");
-    mainMenu.classList.remove('page-header__wrapper--opened');
+    changeProps(toggleMenuBtn, "burger--active");
+    changeProps(mainMenu, "page-header__wrapper--opened");
 
-    if (!document.body.classList.contains("body--dark")) {
-      logo.classList.remove('logo--white');
+    if (!body.classList.contains("body--dark")) {
+      changeProps(logo, "logo--white");
     }
   }
 });

@@ -1,7 +1,6 @@
 "use strict";
 
 const logo = document.querySelector(".page-header__logo");
-console.log(logo);
 const themeToggle = document.querySelector("#theme-toggle");
 const toggleMenuBtn = document.querySelector(".burger");
 const mainMenu = document.querySelector(".page-header__wrapper--right");
@@ -39,10 +38,17 @@ mainMenuItems.forEach(item =>
 window.addEventListener("resize", function(evt) {
   if (window.innerWidth < 768) {
     document.body.className = "body";
-    logo.classList.remove('logo--white');
     themeToggle.checked = false;
+
+    if(!toggleMenuBtn.classList.contains("burger--active")) {
+      logo.classList.remove('logo--white');
+    }
   } else {
-    mainMenu.classList.remove('page-header__wrapper--opened');
     toggleMenuBtn.classList.remove("burger--active");
+    mainMenu.classList.remove('page-header__wrapper--opened');
+
+    if (!document.body.classList.contains("body--dark")) {
+      logo.classList.remove('logo--white');
+    }
   }
 });

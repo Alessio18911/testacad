@@ -7,17 +7,20 @@ const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const cmq = require("css-mqpacker");
 const sass = require("gulp-sass");
-const spriter = require("gulp-svg-symbol-sprite");
+const svgmin = require("gulp-svgmin");
+const spriter = require("gulp-svgstore");
 const rename = require("gulp-rename");
 const csso = require("gulp-csso");
+const htmlmin = require("gulp-html-minify");
 const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
 const browserSync = require("browser-sync").create();
-const build = series(clean, copy, sprite, parallel(css, js), html);
+const build = series(clean, copy, parallel(sprite, css, js), html);
 
 function html() {
   return src("source/*.html")
-    .pipe(posthtml([include()]))
+  .pipe(htmlmin())
+  .pipe(posthtml([include()]))
     .pipe(dest("dist"));
 }
 
@@ -45,17 +48,20 @@ function js() {
 }
 
 function sprite() {
-  return src(['source/img/*.svg'])
-    .pipe(spriter({
-        svg: 'sprite.svg'
+  return src(['dist/img/*.svg'])
+    .pipe(svgmin({
+      plugins: [
+        { removeDimensions: true }
+      ]
     }))
+    .pipe(spriter({ inlineSvg: true }))
+    .pipe(rename("sprite.svg"))
     .pipe(dest('dist/img'));
 }
 
 function copy() {
-  return src(["source/img/*", "source/fonts/*"], { base: "source" }).pipe(
-    dest("./dist")
-  );
+  return src(["source/fonts/*", "source/img/*"], { base: "source" })
+    .pipe(dest("./dist"));
 }
 
 function clean() {

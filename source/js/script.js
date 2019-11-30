@@ -5,16 +5,41 @@ const ActionCode = {
   TOGGLE_CLASS: 2
 };
 
+const BlocksMap = {
+  body: {
+    props: {
+      color: "body--dark",
+      immobility: "body--immobile"
+    }
+  },
+
+  logo: {
+    prop: "logo--white"
+  },
+
+  toggleMenuBtn: {
+    prop: "burger--active"
+  },
+
+  mainMenu: {
+    prop: "page-header__wrapper--opened"
+  },
+
+  mainMenuItem: {
+    prop: "main-nav__link--clicked"
+  }
+};
+
 const body = document.body;
 const logo = body.querySelector(".page-header__logo");
-const themeToggle = body.querySelector("#theme-toggle");
+const themeToggle = body.querySelector(".theme-toggle__input");
 const toggleMenuBtn = body.querySelector(".burger");
 const mainMenu = body.querySelector(".page-header__wrapper--right");
 const mainMenuItems = body.querySelectorAll(".main-nav__link");
 
 function toggleMainMenuItemsColor(evt) {
-  mainMenuItems.forEach(item => changeProps(item, "main-nav__link--clicked"));
-  changeProps(evt.target, "main-nav__link--clicked", ActionCode.ADD_CLASS);
+  mainMenuItems.forEach(item => changeProps(item, BlocksMap.mainMenuItem.prop));
+  changeProps(evt.target, BlocksMap.mainMenuItem.prop, ActionCode.ADD_CLASS);
 }
 
 function changeProps(blockName, propClass, code) {
@@ -30,15 +55,15 @@ function changeProps(blockName, propClass, code) {
 }
 
 function onThemeToggleChange() {
-  changeProps(body, "body--dark", ActionCode.TOGGLE_CLASS);
-  changeProps(logo, "logo--white", ActionCode.TOGGLE_CLASS);
+  changeProps(body, BlocksMap.body.props.color, ActionCode.TOGGLE_CLASS);
+  changeProps(logo, BlocksMap.logo.prop, ActionCode.TOGGLE_CLASS);
 }
 
 function onToggleMenuBtnClick() {
-  changeProps(toggleMenuBtn, "burger--active", ActionCode.TOGGLE_CLASS);
-  changeProps(mainMenu, "page-header__wrapper--opened", ActionCode.TOGGLE_CLASS);
-  changeProps(logo, "logo--white", ActionCode.TOGGLE_CLASS);
-  changeProps(body, "body--immobile", ActionCode.TOGGLE_CLASS);
+  changeProps(toggleMenuBtn, BlocksMap.toggleMenuBtn.prop, ActionCode.TOGGLE_CLASS);
+  changeProps(mainMenu, BlocksMap.mainMenu.prop, ActionCode.TOGGLE_CLASS);
+  changeProps(logo, BlocksMap.logo.prop, ActionCode.TOGGLE_CLASS);
+  changeProps(body, BlocksMap.body.props.immobility, ActionCode.TOGGLE_CLASS);
 }
 
 function onMainMenuItemClick(evt) {
@@ -52,19 +77,19 @@ toggleMenuBtn.addEventListener("click", onToggleMenuBtnClick);
 
 window.addEventListener("resize", function(evt) {
   if (window.innerWidth < 768) {
-    changeProps(body, "body--immobile");
-    changeProps(body, "body--dark");
+    changeProps(body, BlocksMap.body.props.immobility);
+    changeProps(body, BlocksMap.body.props.color);
     themeToggle.checked = false;
 
     if(!toggleMenuBtn.classList.contains("burger--active")) {
-      changeProps(logo, "logo--white");
+      changeProps(logo, BlocksMap.logo.prop);
     }
   } else {
-    changeProps(toggleMenuBtn, "burger--active");
-    changeProps(mainMenu, "page-header__wrapper--opened");
+    changeProps(toggleMenuBtn, BlocksMap.toggleMenuBtn.prop);
+    changeProps(mainMenu, BlocksMap.mainMenu.prop);
 
     if (!body.classList.contains("body--dark")) {
-      changeProps(logo, "logo--white");
+      changeProps(logo, BlocksMap.logo.prop);
     }
   }
 });

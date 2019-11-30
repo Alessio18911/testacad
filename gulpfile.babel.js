@@ -48,7 +48,7 @@ function js() {
 }
 
 function sprite() {
-  return src(['dist/img/*.svg'])
+  return src(["dist/img/*.svg"])
     .pipe(svgmin({
       plugins: [
         { removeDimensions: true }
@@ -56,7 +56,7 @@ function sprite() {
     }))
     .pipe(spriter({ inlineSvg: true }))
     .pipe(rename("sprite.svg"))
-    .pipe(dest('dist/img'));
+    .pipe(dest("dist/img"));
 }
 
 function copy() {

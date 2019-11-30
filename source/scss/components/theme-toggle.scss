@@ -1,17 +1,16 @@
-.theme-toggle__input:checked + label {
+.theme-toggle__input:checked + .theme-toggle__label {
+  .theme-toggle__svg--rays {
+    opacity: 1;
+  }
+
+  .theme-toggle__svg--moon {
+    fill: $white;
+    stroke: none;
+  }
+
   &::before {
     left: 22px;
   }
-}
-
-.theme-toggle__input:checked + .theme-toggle__label .theme-toggle__svg--rays {
-  opacity: 1;
-}
-
-.theme-toggle__input:checked + .theme-toggle__label
-.theme-toggle__svg--moon {
-  fill: $white;
-  stroke: none;
 }
 
 .theme-toggle__label {

@@ -7,12 +7,13 @@ const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const cmq = require("css-mqpacker");
 const sass = require("gulp-sass");
+const spriter = require("gulp-svg-symbol-sprite");
 const rename = require("gulp-rename");
 const csso = require("gulp-csso");
 const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
 const browserSync = require("browser-sync").create();
-const build = series(clean, copy, parallel(css, js), html);
+const build = series(clean, copy, sprite, parallel(css, js), html);
 
 function html() {
   return src("source/*.html")
@@ -41,6 +42,14 @@ function js() {
     .pipe(uglify())
     .pipe(rename({ suffix: ".min" }))
     .pipe(dest("dist/js", { sourcemaps: true }));
+}
+
+function sprite() {
+  return src(['source/img/*.svg'])
+    .pipe(spriter({
+        svg: 'sprite.svg'
+    }))
+    .pipe(dest('dist/img'));
 }
 
 function copy() {

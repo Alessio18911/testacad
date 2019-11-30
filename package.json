@@ -33,6 +33,7 @@
     "gulp-posthtml": "^3.0.4",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
+    "gulp-svg-symbol-sprite": "^2.0.1",
     "gulp-uglify": "^3.0.2",
     "posthtml-include": "^1.3.2"
   }

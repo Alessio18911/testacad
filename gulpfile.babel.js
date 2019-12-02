@@ -19,8 +19,8 @@ const build = series(clean, copy, parallel(sprite, css, js), html);
 
 function html() {
   return src("source/*.html")
-  .pipe(htmlmin())
-  .pipe(posthtml([include()]))
+    .pipe(htmlmin())
+    .pipe(posthtml([include()]))
     .pipe(dest("dist"));
 }
 

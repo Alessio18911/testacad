@@ -79,6 +79,10 @@
 
   &:active {
     color: $lightblue;
+
+    @include mq(768) {
+      color: $lightblue;
+    }
   }
 
   &--clicked {
